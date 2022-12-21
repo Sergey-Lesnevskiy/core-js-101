@@ -313,6 +313,10 @@ function get3TopItems(arr) {
  *   [ 1, '2' ] => 1
  */
 function getPositivesCount(/* arr */) {
+//   return arr.reduce((accumulator, currentValue) => {
+//     if (currentValue > 0) { accumulator + currentValue; }
+//     return accumulator;
+//   }, 0);
   throw new Error('Not implemented');
 }
 
@@ -383,8 +387,8 @@ function getFalsyValuesCount(/* arr */) {
  *    [ null, undefined, null ], null => 2
  *    [ true, 0, 1, 'true' ], true => 1
  */
-function findAllOccurrences(/* arr, item */) {
-  throw new Error('Not implemented');
+function findAllOccurrences(arr, item) {
+  return arr.filter((val) => val === item).length;
 }
 
 /**
@@ -468,8 +472,9 @@ function getIdentityMatrix(/* n */) {
  *     0, 100 => [ 0, 1, 2, ..., 100 ]
  *     3, 3   => [ 3 ]
  */
-function getIntervalArray(/* start, end */) {
-  throw new Error('Not implemented');
+function getIntervalArray(start, end) {
+  return new Array(end + 1 - start).fill(0)
+    .map((_, i) => start + i);
 }
 
 /**
@@ -483,8 +488,8 @@ function getIntervalArray(/* start, end */) {
  *   [ 'a', 'a', 'a', 'a' ]  => [ 'a' ]
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
-function distinct(/* arr */) {
-  throw new Error('Not implemented');
+function distinct(arr) {
+  return arr.filter((elem, index, self) => index === self.indexOf(elem));
 }
 
 /**
