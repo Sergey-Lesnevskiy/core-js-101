@@ -102,9 +102,8 @@ function getArrayOfStrings(arr) {
  *    [ 1, 2, 3, 4, 5, 'false' ]         => [ 1, 2, 3, 4, 5, 'false' ]
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
-function removeFalsyValues(/* arr */) {
-//   return arr.filter((val) => val === true);
-  throw new Error('Not implemented');
+function removeFalsyValues(arr) {
+  return arr.filter((val) => Boolean(val) === true);
 }
 
 /**
@@ -148,12 +147,8 @@ function getStringsLength(arr) {
  *    [ 1, 3, 4, 5 ], 2, 1  => [ 1, 2, 3, 4, 5 ]
  *    [ 1, 'b', 'c'], 'x', 0  => [ 'x', 1, 'b', 'c' ]
  */
-function insertItem(/* arr, item, index */) {
-//   const p1 = arr.slice(0, index);
-//   const p2 = arr.slice(index);
-//   p1.push(item);
-//   return [...p1, ...p2];
-  throw new Error('Not implemented');
+function insertItem(arr, item, index) {
+  return arr.splice(index, 0, item);
 }
 
 /**
@@ -295,7 +290,6 @@ function propagateItemsByPositionIndex(/* arr */) {
  */
 function get3TopItems(arr) {
   return arr.slice(-3).reverse();
-  // throw new Error('Not implemented');
 }
 
 
