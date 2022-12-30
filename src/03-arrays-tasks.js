@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* ********************************************************************************************
  *                                                                                            *
  * Please read the following tutorial before implementing tasks:                               *
@@ -250,9 +251,8 @@ function getMovingSum(/* arr */) {
  * [ 'a', 'b', 'c' , null ]  => [ "b", null ]
  * [ "a" ] => []
  */
-function getSecondItems(/* arr */) {
-//   return arr.filter((item) => item % 2 === 0 || (parseInt(item, 36) - 9) % 2 === 0);
-  throw new Error('Not implemented');
+function getSecondItems(arr) {
+  return arr.filter((_, index) => index % 2 !== 0);
 }
 
 
@@ -270,8 +270,12 @@ function getSecondItems(/* arr */) {
  *  [ 'a', 'b', 'c', null ] => [ 'a', 'b','b', 'c','c','c',  null,null,null,null ]
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
-function propagateItemsByPositionIndex(/* arr */) {
-  throw new Error('Not implemented');
+function propagateItemsByPositionIndex(arr) {
+  if (arr.length === 0 || arr.length === 1) return arr;
+  return arr.reduce((acc, v, i) => {
+    acc.push(...Array(i + 1).fill(v));
+    return acc;
+  }, []);
 }
 
 
@@ -306,12 +310,11 @@ function get3TopItems(arr) {
  *   [ null, 1, 'elephant' ] => 1
  *   [ 1, '2' ] => 1
  */
-function getPositivesCount(/* arr */) {
-//   return arr.reduce((accumulator, currentValue) => {
-//     if (currentValue > 0) { accumulator + currentValue; }
-//     return accumulator;
-//   }, 0);
-  throw new Error('Not implemented');
+function getPositivesCount(arr) {
+  return arr.reduce((accumulator, currentValue) => {
+    if (Number.isInteger(currentValue) && currentValue > 0) { accumulator += 1; }
+    return accumulator;
+  }, 0);
 }
 
 /**
@@ -328,7 +331,7 @@ function getPositivesCount(/* arr */) {
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
 function sortDigitNamesByNumericOrder(/* arr */) {
-//   return arr.sort((a, b) => a - b);
+  // return arr.sort((a, b) => a.localeCompare(b));
   throw new Error('Not implemented');
 }
 
@@ -363,8 +366,11 @@ function getItemsSum(arr) {
  *  [ -1, 'false', null, 0 ] => 2
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
-function getFalsyValuesCount(/* arr */) {
-  throw new Error('Not implemented');
+function getFalsyValuesCount(arr) {
+  return arr.reduce((accumulator, currentValue) => {
+    if (Boolean(currentValue) === false) { accumulator += 1; }
+    return accumulator;
+  }, 0);
 }
 
 /**
